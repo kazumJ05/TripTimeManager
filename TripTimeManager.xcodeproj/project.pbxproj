@@ -15,6 +15,10 @@
 		01977F4823C9701000658059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01977F4623C9701000658059 /* LaunchScreen.storyboard */; };
 		01977F5323C9701100658059 /* TripTimeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01977F5223C9701100658059 /* TripTimeManagerTests.swift */; };
 		01977F5E23C9701100658059 /* TripTimeManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01977F5D23C9701100658059 /* TripTimeManagerUITests.swift */; };
+		01977F6E23C9768900658059 /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01977F6D23C9768900658059 /* addViewController.swift */; };
+		01977F7023C9769500658059 /* noteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01977F6F23C9769500658059 /* noteViewController.swift */; };
+		01E17E5C23CA0BC9005DEDA2 /* メモアイコン.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E17E5B23CA0BC9005DEDA2 /* メモアイコン.png */; };
+		01E17E5E23CA0BDB005DEDA2 /* キャリーバッグ5.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E17E5D23CA0BDB005DEDA2 /* キャリーバッグ5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01977F3823C9700F00658059 /* TripTimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripTimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01977F3823C9700F00658059 /* TravelTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01977F3B23C9700F00658059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01977F3D23C9700F00658059 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		01977F3F23C9700F00658059 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		01977F5923C9701100658059 /* TripTimeManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripTimeManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01977F5D23C9701100658059 /* TripTimeManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTimeManagerUITests.swift; sourceTree = "<group>"; };
 		01977F5F23C9701100658059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01977F6D23C9768900658059 /* addViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
+		01977F6F23C9769500658059 /* noteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteViewController.swift; sourceTree = "<group>"; };
+		01E17E5B23CA0BC9005DEDA2 /* メモアイコン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "メモアイコン.png"; sourceTree = "<group>"; };
+		01E17E5D23CA0BDB005DEDA2 /* キャリーバッグ5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "キャリーバッグ5.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +97,7 @@
 		01977F3923C9700F00658059 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01977F3823C9700F00658059 /* TripTimeManager.app */,
+				01977F3823C9700F00658059 /* TravelTime.app */,
 				01977F4E23C9701100658059 /* TripTimeManagerTests.xctest */,
 				01977F5923C9701100658059 /* TripTimeManagerUITests.xctest */,
 			);
@@ -106,6 +114,10 @@
 				01977F4423C9701000658059 /* Assets.xcassets */,
 				01977F4623C9701000658059 /* LaunchScreen.storyboard */,
 				01977F4923C9701000658059 /* Info.plist */,
+				01977F6D23C9768900658059 /* addViewController.swift */,
+				01977F6F23C9769500658059 /* noteViewController.swift */,
+				01E17E5D23CA0BDB005DEDA2 /* キャリーバッグ5.png */,
+				01E17E5B23CA0BC9005DEDA2 /* メモアイコン.png */,
 			);
 			path = TripTimeManager;
 			sourceTree = "<group>";
@@ -145,7 +157,7 @@
 			);
 			name = TripTimeManager;
 			productName = TripTimeManager;
-			productReference = 01977F3823C9700F00658059 /* TripTimeManager.app */;
+			productReference = 01977F3823C9700F00658059 /* TravelTime.app */;
 			productType = "com.apple.product-type.application";
 		};
 		01977F4D23C9701100658059 /* TripTimeManagerTests */ = {
@@ -232,6 +244,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E17E5E23CA0BDB005DEDA2 /* キャリーバッグ5.png in Resources */,
+				01E17E5C23CA0BC9005DEDA2 /* メモアイコン.png in Resources */,
 				01977F4823C9701000658059 /* LaunchScreen.storyboard in Resources */,
 				01977F4523C9701000658059 /* Assets.xcassets in Resources */,
 				01977F4323C9700F00658059 /* Main.storyboard in Resources */,
@@ -260,7 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01977F4023C9700F00658059 /* ViewController.swift in Sources */,
+				01977F7023C9769500658059 /* noteViewController.swift in Sources */,
 				01977F3C23C9700F00658059 /* AppDelegate.swift in Sources */,
+				01977F6E23C9768900658059 /* addViewController.swift in Sources */,
 				01977F3E23C9700F00658059 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 3QTY9LA6S9;
 				INFOPLIST_FILE = TripTimeManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -442,7 +459,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.litechkazuma.TripTimeManager;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TravelTime;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 3QTY9LA6S9;
 				INFOPLIST_FILE = TripTimeManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,7 +478,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.litechkazuma.TripTimeManager;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TravelTime;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
