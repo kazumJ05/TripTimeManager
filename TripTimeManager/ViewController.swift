@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     var getdataArray: Int = 0
     var timer = Timer()
     var timeCount: Int = 0
-    var repeatCount: Int = 0
     var i: Int = 0
     var j: Int = 0
     
@@ -87,28 +86,6 @@ class ViewController: UIViewController {
         
         if saveData.array(forKey: "settimedata") != nil{
             information = saveData.array(forKey: "settimedata") as! [Dictionary<String,String>]
-            
-            if information[getdataArray]["mokutekiti2"] == nil{
-                repeatCount = 1
-            }else if information[getdataArray]["mokutekiti3"] == nil{
-                repeatCount = 2
-            }else if information[getdataArray]["mokutekiti4"] == nil{
-                repeatCount = 3
-            }else if information[getdataArray]["mokutekiti5"] == nil{
-               repeatCount = 4
-            }else if information[getdataArray]["mokutekiti6"] == nil{
-                repeatCount = 5
-            }else if information[getdataArray]["mokutekiti7"] == nil{
-               repeatCount = 6
-            }else if information[getdataArray]["mokutekiti8"] == nil{
-                repeatCount = 7
-            }else if information[getdataArray]["mokutekiti9"] == nil{
-                repeatCount = 8
-            }else if information[getdataArray]["mokutekiti10"] == nil{
-               repeatCount = 9
-            }else{
-                repeatCount = 10
-            }
             display()
         }
     }
@@ -116,9 +93,9 @@ class ViewController: UIViewController {
     @objc func display(){
         var mokutekiArray = [mokuteki1,mokuteki2,mokuteki3,mokuteki4,mokuteki5,mokuteki6,mokuteki7,mokuteki8,mokuteki9,mokuteki10]
         var dateArray = [dateText1, dateText2, dateText3, dateText4, dateText5, dateText6, dateText7, dateText8, dateText9, dateText10]
-        for i in 1 ... repeatCount{
-            mokutekiArray[j]?.text = information[getdataArray]["mokutekiti\(i)"]
-            dateArray[j]?.text = information[getdataArray]["time\(i)"]
+        for i in 0 ... 9{
+            mokutekiArray[i]?.text = information[getdataArray]["mokutekiti\(i + 1)"]
+            dateArray[i]?.text = information[getdataArray]["time\(i + 1)"]
             j = j + 1
         }
         setDay.text = information[getdataArray]["date"]
