@@ -7,8 +7,8 @@
     {
       "idiom" : "universal",
       "color" : {
-        "platform" : "ios",
-        "reference" : "darkTextColor"
+        "platform" : "osx",
+        "reference" : "textBackgroundColor"
       }
     },
     {

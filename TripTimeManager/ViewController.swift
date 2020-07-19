@@ -53,9 +53,15 @@ class ViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeCheck), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .default)
-        
+        // ダークモード判定分岐
+        // ダークモードのとき
+        if UITraitCollection.isDarkMode {
+            addButton.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        } else {
+        // ライトモードのとき
+            addButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
         addButton.layer.borderWidth = 1
-        addButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         addButton.layer.cornerRadius = 9
     }
     
@@ -100,5 +106,16 @@ class ViewController: UIViewController {
         }
         setDay.text = information[getdataArray]["date"]
     }
+}
+
+extension UITraitCollection {
+
+    public static var isDarkMode: Bool {
+        if #available(iOS 13, *), current.userInterfaceStyle == .dark {
+            return true
+        }
+        return false
+    }
+
 }
 
