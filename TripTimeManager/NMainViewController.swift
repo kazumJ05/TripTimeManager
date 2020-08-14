@@ -31,7 +31,11 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
                }
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeCheck), userInfo: nil, repeats: true)
-               RunLoop.main.add(timer, forMode: .default)
+        RunLoop.main.add(timer, forMode: .default)
+        
+        table.dataSource = self
+               
+        table.delegate = self
         
          table.register(UINib(nibName: "SceduleTableViewCell", bundle: nil), forCellReuseIdentifier: "Hcell")
     }
