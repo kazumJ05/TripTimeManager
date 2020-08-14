@@ -48,6 +48,12 @@ class NAddTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        
+    }
+    
 //    @objc func done(){
 //           timeN.endEditing(true)
 //           let formatter = DateFormatter()

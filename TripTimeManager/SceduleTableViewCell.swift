@@ -12,7 +12,9 @@ class SceduleTableViewCell: UITableViewCell {
     
     @IBOutlet var place : UILabel!
     @IBOutlet var time : UILabel!
+    @IBOutlet var day : UILabel!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
