@@ -14,6 +14,12 @@ class NMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if UITraitCollection.isDarkMode {
+            
+               } else {
+               // ライトモードのとき
+               }
     }
     
     @IBAction func selectToNAddView(){
@@ -32,3 +38,14 @@ class NMainViewController: UIViewController {
     */
 
 }
+
+//extension UITraitCollection {
+//
+//    public static var isDarkMode: Bool {
+//        if #available(iOS 13, *), current.userInterfaceStyle == .dark {
+//            return true
+//        }
+//        return false
+//    }
+//
+//}

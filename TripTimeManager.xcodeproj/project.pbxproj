@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0188DAA824E50E180027857C /* NAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188DAA624E50E180027857C /* NAddTableViewCell.swift */; };
+		0188DAA924E50E180027857C /* NAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188DAA724E50E180027857C /* NAddTableViewCell.xib */; };
 		0192C95B24645219008AC412 /* SceduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0192C95924645219008AC412 /* SceduleTableViewCell.swift */; };
 		0192C95C24645219008AC412 /* SceduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0192C95A24645219008AC412 /* SceduleTableViewCell.xib */; };
 		0194A6BC24C44ACA00E84998 /* NMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0194A6BB24C44ACA00E84998 /* NMainViewController.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0188DAA624E50E180027857C /* NAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAddTableViewCell.swift; sourceTree = "<group>"; };
+		0188DAA724E50E180027857C /* NAddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NAddTableViewCell.xib; sourceTree = "<group>"; };
 		0192C95924645219008AC412 /* SceduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceduleTableViewCell.swift; sourceTree = "<group>"; };
 		0192C95A24645219008AC412 /* SceduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceduleTableViewCell.xib; sourceTree = "<group>"; };
 		0194A6BB24C44ACA00E84998 /* NMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMainViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				0192C95A24645219008AC412 /* SceduleTableViewCell.xib */,
 				0194A6BB24C44ACA00E84998 /* NMainViewController.swift */,
 				0194A6BD24C44AFD00E84998 /* NAddViewController.swift */,
+				0188DAA624E50E180027857C /* NAddTableViewCell.swift */,
+				0188DAA724E50E180027857C /* NAddTableViewCell.xib */,
 			);
 			path = TripTimeManager;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 				01E17E5E23CA0BDB005DEDA2 /* キャリーバッグ5.png in Resources */,
 				0192C95C24645219008AC412 /* SceduleTableViewCell.xib in Resources */,
 				01E17E5C23CA0BC9005DEDA2 /* メモアイコン.png in Resources */,
+				0188DAA924E50E180027857C /* NAddTableViewCell.xib in Resources */,
 				01977F4823C9701000658059 /* LaunchScreen.storyboard in Resources */,
 				01977F4523C9701000658059 /* Assets.xcassets in Resources */,
 				01977F4323C9700F00658059 /* Main.storyboard in Resources */,
@@ -290,6 +297,7 @@
 				0194A6BE24C44AFD00E84998 /* NAddViewController.swift in Sources */,
 				0192C95B24645219008AC412 /* SceduleTableViewCell.swift in Sources */,
 				01977F7023C9769500658059 /* noteViewController.swift in Sources */,
+				0188DAA824E50E180027857C /* NAddTableViewCell.swift in Sources */,
 				01977F3C23C9700F00658059 /* AppDelegate.swift in Sources */,
 				01977F6E23C9768900658059 /* addViewController.swift in Sources */,
 				0194A6BC24C44ACA00E84998 /* NMainViewController.swift in Sources */,
