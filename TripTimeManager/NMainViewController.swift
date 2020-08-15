@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+import NotificationCenter
 
 class NMainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -14,6 +16,11 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
     var timer = Timer()
     var timeCount: Int = 0
     var information: [Dictionary<String,String>] = []
+    var setNotifiIde =  String()
+    
+    let saveData = UserDefaults.standard
+    let center = UNUserNotificationCenter.current()
+    let setSaveData = UserDefaults.standard
     
     @IBOutlet var nowTime : UILabel!
     @IBOutlet var nowMinute: UILabel!
@@ -42,6 +49,15 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        if saveData.array(forKey: "DATA") != nil{
+            information = saveData.array(forKey: "DATA") as! [Dictionary<String,String>]
+        }
+        
+        if setSaveData.object(forKey: "NUM") != nil{
+            setNotifiIde = setSaveData.object(forKey: "NUM") as! String
+        }
+        
         table.reloadData()
     }
     
@@ -50,21 +66,29 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-//        完成時に変更
-//        return information.count
+        return information.count
     }
        
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Hcell") as! SceduleTableViewCell
         
-        cell.place.text = "AREA!"
-        cell.day.text = "01/01"
-        cell.time.text = "12:00"
+        cell.place.text = information[indexPath.row]["place"]
+        cell.day.text = information[indexPath.row]["day"]
+        cell.time.text = information[indexPath.row]["time"]
         
         return cell
-       }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            center.removePendingNotificationRequests(withIdentifiers: [setNotifiIde])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            
+        }
+    }
     
     @objc func time(){
         timeCount = timeCount + 1
