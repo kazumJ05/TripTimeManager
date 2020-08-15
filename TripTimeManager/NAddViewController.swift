@@ -149,6 +149,7 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.present(aleat, animated: true, completion: nil)
         }else{
             Nview.isHidden = false
+            table.reloadData()
         }
     }
     
