@@ -12,17 +12,6 @@ import NotificationCenter
 
 class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate {
     
-    
-    var timePic0: UIDatePicker = UIDatePicker()
-    var timePic1: UIDatePicker = UIDatePicker()
-    var timePic2: UIDatePicker = UIDatePicker()
-    var timePic3: UIDatePicker = UIDatePicker()
-    var timePic4: UIDatePicker = UIDatePicker()
-    var timePic5: UIDatePicker = UIDatePicker()
-    var timePic6: UIDatePicker = UIDatePicker()
-    var timePic7: UIDatePicker = UIDatePicker()
-    var timePic8: UIDatePicker = UIDatePicker()
-    var timePic9: UIDatePicker = UIDatePicker()
     var information: [Dictionary<String,String>] = []
     
     var cellCount: Int = 0
@@ -32,6 +21,10 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var DyPicker :UIDatePicker = UIDatePicker()
     var dataPicker: UIPickerView = UIPickerView()
     
+    var A: String = "aaa"
+    var B:String = "22:22"
+    var C:String = "33/33"
+    
     @IBOutlet var table: UITableView!
     
     @IBOutlet var setDy: UITextField!
@@ -39,29 +32,9 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet var NtableView: UITableView!
     
-    @IBOutlet var area0: UITextField!
-    @IBOutlet var area1: UITextField!
-    @IBOutlet var area2: UITextField!
-    @IBOutlet var area3: UITextField!
-    @IBOutlet var area4: UITextField!
-    @IBOutlet var area5: UITextField!
-    @IBOutlet var area6: UITextField!
-    @IBOutlet var area7: UITextField!
-    @IBOutlet var area8: UITextField!
-    @IBOutlet var area9: UITextField!
-    
-    @IBOutlet var time0: UITextField!
-    @IBOutlet var time1: UITextField!
-    @IBOutlet var time2: UITextField!
-    @IBOutlet var time3: UITextField!
-    @IBOutlet var time4: UITextField!
-    @IBOutlet var time5: UITextField!
-    @IBOutlet var time6: UITextField!
-    @IBOutlet var time7: UITextField!
-    @IBOutlet var time8: UITextField!
-    @IBOutlet var time9: UITextField!
     
     @IBOutlet var BackBut: UIButton!
+    @IBOutlet var AddBut: UIButton!
     
     @IBOutlet var area: UITextField!
     @IBOutlet var time: UITextField!
@@ -81,6 +54,21 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        NTimeSet.addTarget(self, action: #selector(handler), for: UIControl.Event.valueChanged)
+        
+        if UITraitCollection.isDarkMode {
+            BackBut.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            AddBut.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        } else {
+        // ライトモードのとき
+            BackBut.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            AddBut.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        BackBut.layer.borderWidth = 1
+        BackBut.layer.cornerRadius = 9
+        AddBut.layer.borderWidth = 1
+        AddBut.layer.cornerRadius = 9
         
         
         let extoolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -105,6 +93,8 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
         setDy.inputAccessoryView = extoolBar
         
         setDy.inputView = DyPicker
+        
+        NTimeSet = datePicker
         
         table.dataSource = self
                
@@ -142,12 +132,24 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
         time.endEditing(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        time.text = "\(formatter.string(from: datePicker.date))"
+        time.text = "\(formatter.string(from: NTimeSet.date))"
     }
     
 
     @IBAction func selectAdd(){
-        Nview.isHidden = false
+        if setDy.text == "初めに入力"{
+            let aleat = UIAlertController(title: "エラー",message: "行動日を入力してください",preferredStyle: .alert)
+            aleat.addAction(UIAlertAction(title: "OK",style: .default,handler: nil))
+            self.present(aleat, animated: true, completion: nil)
+        }
+               
+        if setNoBe.text == "初めに選択"{
+            let aleat = UIAlertController(title: "エラー",message: "通知時刻設定を入力してください",preferredStyle: .alert)
+            aleat.addAction(UIAlertAction(title: "OK",style: .default,handler: nil))
+            self.present(aleat, animated: true, completion: nil)
+        }else{
+            Nview.isHidden = false
+        }
     }
     
     
@@ -159,10 +161,9 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
         time.endEditing(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        time.text = "\(formatter.string(from: datePicker.date))"
+        time.text = "\(formatter.string(from: NTimeSet.date))"
         
         Nview.isHidden = true
-        
         
         
         if area.text == ""{
@@ -253,6 +254,11 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return information.count
@@ -262,9 +268,9 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NAddTableViewCell
         
-        cell.areaN?.text = "aaa"
-        cell.timeN?.text = "00:00"
-        cell.dayN?.text = "00/00"
+        cell.areaN?.text = A
+        cell.timeN?.text = B
+        cell.dayN?.text = C
         
 //        cell.areaN?.text = information[indexPath.row]["place"]!
 //        cell.timeN?.text = information[indexPath.row]["time"]!
@@ -313,6 +319,12 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
+    @objc func handler() {
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+        time.text = "\(timeFormatter.string(from: NTimeSet.date))"
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -328,15 +340,15 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 
 
-//extension UITraitCollection {
-//
-//    public static var isDarkMode: Bool {
-//
-//        if #available(iOS 13, *), current.userInterfaceStyle == .dark {
-//            return true
-//        }
-//        return false
-//    }
-//
-//}
+extension UITraitCollection {
+
+    public static var isDarkMode: Bool {
+
+        if #available(iOS 13, *), current.userInterfaceStyle == .dark {
+            return true
+        }
+        return false
+    }
+
+}
 

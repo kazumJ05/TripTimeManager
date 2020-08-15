@@ -12,7 +12,7 @@ class NAddTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet var areaN : UILabel!
     @IBOutlet var timeN : UILabel!
-    @IBOutlet var dayN: UILabel!
+    @IBOutlet var dayN : UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

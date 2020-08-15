@@ -25,6 +25,8 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var nowTime : UILabel!
     @IBOutlet var nowMinute: UILabel!
     @IBOutlet var table: UITableView!
+    
+    @IBOutlet var addBut: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,14 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
         
         if UITraitCollection.isDarkMode {
-            
-               } else {
+            addBut.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        } else {
                // ライトモードのとき
-               }
+            addBut.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        
+        addBut.layer.borderWidth = 1
+        addBut.layer.cornerRadius = 9
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeCheck), userInfo: nil, repeats: true)
         RunLoop.main.add(timer, forMode: .default)
@@ -84,7 +90,9 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
         if editingStyle == .delete{
             
             center.removePendingNotificationRequests(withIdentifiers: [setNotifiIde])
+            information.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveData.set(information, forKey: "DATA")
             tableView.reloadData()
             
         }
@@ -119,14 +127,3 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
     */
 
 }
-
-//extension UITraitCollection {
-//
-//    public static var isDarkMode: Bool {
-//        if #available(iOS 13, *), current.userInterfaceStyle == .dark {
-//            return true
-//        }
-//        return false
-//    }
-//
-//}
