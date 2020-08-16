@@ -21,6 +21,7 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
     let saveData = UserDefaults.standard
     let center = UNUserNotificationCenter.current()
     let setSaveData = UserDefaults.standard
+    let StringSaveData = UserDefaults.standard
     
     @IBOutlet var nowTime : UILabel!
     @IBOutlet var nowMinute: UILabel!
@@ -60,8 +61,8 @@ class NMainViewController: UIViewController, UITableViewDataSource, UITableViewD
             information = saveData.array(forKey: "DATA") as! [Dictionary<String,String>]
         }
         
-        if setSaveData.object(forKey: "NUM") != nil{
-            setNotifiIde = setSaveData.object(forKey: "NUM") as! String
+        if StringSaveData.object(forKey: "OLDNUM") != nil{
+            setNotifiIde = StringSaveData.object(forKey: "OLDNUM") as! String
         }
         
         table.reloadData()

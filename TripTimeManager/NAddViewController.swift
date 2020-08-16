@@ -16,6 +16,7 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var cellCount: Int = 0
     var setNotifiIde: Int = 0
+    var NextNotifiIde: Int = 0
     
     var datePicker: UIDatePicker = UIDatePicker()
     var DyPicker :UIDatePicker = UIDatePicker()
@@ -46,6 +47,7 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let content = UNMutableNotificationContent()
     let center = UNUserNotificationCenter.current()
     let setSaveData = UserDefaults.standard
+    let StringSaveData = UserDefaults.standard
     
     let list = ["出発時刻の3分前", "出発時刻の5分前", "出発時刻の10分前"]
     
@@ -234,8 +236,9 @@ class NAddViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                             let request = UNNotificationRequest(identifier: String(self.setNotifiIde), content: self.content, trigger: trigger)
                                            
                                             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                            self.setNotifiIde = self.setNotifiIde + 1
-                                            self.setSaveData.set(String(self.setNotifiIde), forKey: "NUM")
+                                             self.NextNotifiIde = self.setNotifiIde + 1
+                                            self.setSaveData.set(self.NextNotifiIde, forKey: "NEWNUM")
+                                            self.StringSaveData.set(String(self.setNotifiIde), forKey: "OLDNUM")
                                         }
                                     }
                                 })
